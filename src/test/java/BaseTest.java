@@ -23,13 +23,7 @@ public class BaseTest extends Driver {
 
     @After
     public void browserQuit() {
-
-            if (accessToken == null) {
-                user.deleteUser("");
-            } else {
-                user.deleteUser(accessToken);
-            }
-
+        user.deleteUser(accessToken == null ? "" : accessToken);
         driver.quit();
     }
 

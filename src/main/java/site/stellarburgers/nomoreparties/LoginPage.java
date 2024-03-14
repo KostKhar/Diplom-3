@@ -12,10 +12,10 @@ public class LoginPage {
     private final WebDriver driver;
     // Имя
     private final By emailField = By.xpath(".//fieldset[1]//input[@class='text input__textfield text_type_main-default']");
-    private final By passwordField = By.xpath(".//input[@class='text input__textfield text_type_main-default' and @name='Пароль']");
 
     // Пароль
-    private final By signInBlog = By.xpath(".//div/h2[text()='Вход']");
+    private final By passwordField = By.xpath(".//input[@class='text input__textfield text_type_main-default' and @name='Пароль']");
+
 
     // Войти
     private final By signInButton = By.xpath(".//button[@class='button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_medium__3zxIa']");

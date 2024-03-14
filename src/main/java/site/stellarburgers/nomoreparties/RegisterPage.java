@@ -21,13 +21,14 @@ public class RegisterPage {
     // Войти
     private final By signInButton = By.xpath(".//a[@class='Auth_link__1fOlj' and text()='Войти']");
 
-    public By getSignInBlock() {
-        return signInBlock;
-    }
+
 
     // Блок с заголовком Войти
     private final By signInBlock = By.xpath(".//div/h2[text()='Вход']");
-    private final By personalAccount = By.xpath(".//p[@class='AppHeader_header__linkText__3q_va ml-2' and text()='Личный Кабинет']");
+
+    public By getSignInBlock() {
+        return signInBlock;
+    }
 
     // личный кабинет
     private final By invalidPassword = By.xpath(".//p[@class='input__error text_type_main-default' and text()='Некорректный пароль']");
