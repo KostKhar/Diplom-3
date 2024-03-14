@@ -22,21 +22,19 @@ public class RegisterPage {
     private final By signInButton = By.xpath(".//a[@class='Auth_link__1fOlj' and text()='Войти']");
 
 
-
     // Блок с заголовком Войти
     private final By signInBlock = By.xpath(".//div/h2[text()='Вход']");
-
-    public By getSignInBlock() {
-        return signInBlock;
-    }
-
     // личный кабинет
     private final By invalidPassword = By.xpath(".//p[@class='input__error text_type_main-default' and text()='Некорректный пароль']");
 
-    // Некорректный пароль
-
     public RegisterPage(WebDriver driver) {
         this.driver = driver;
+    }
+
+    // Некорректный пароль
+
+    public By getSignInBlock() {
+        return signInBlock;
     }
 
     @Step("Заполнить поля при регистрации")

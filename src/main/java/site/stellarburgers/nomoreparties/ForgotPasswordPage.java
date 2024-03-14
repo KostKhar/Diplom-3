@@ -9,6 +9,7 @@ public class ForgotPasswordPage {
     private final WebDriver driver;
     // кнопка Войти
     private final By signInButton = By.xpath(".//a[@class='Auth_link__1fOlj']");
+
     public ForgotPasswordPage(WebDriver driver) {
         this.driver = driver;
     }

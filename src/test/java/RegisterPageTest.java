@@ -1,6 +1,5 @@
 import io.restassured.RestAssured;
 import org.junit.Test;
-import org.openqa.selenium.By;
 import site.stellarburgers.nomoreparties.RegisterPage;
 import site.stellarburgers.nomoreparties.User;
 

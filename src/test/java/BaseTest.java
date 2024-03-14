@@ -3,6 +3,7 @@ import org.junit.After;
 import org.junit.Before;
 import site.stellarburgers.nomoreparties.User;
 
+
 public class BaseTest extends Driver {
     protected User user;
 
