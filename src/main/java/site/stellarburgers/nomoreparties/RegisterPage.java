@@ -20,6 +20,13 @@ public class RegisterPage {
     private final By signUpButton = By.xpath(".//button[@class='button_button__33qZ0 button_button_type_primary__1O7Bx button_button_size_medium__3zxIa' and text()='Зарегистрироваться']");
     // Войти
     private final By signInButton = By.xpath(".//a[@class='Auth_link__1fOlj' and text()='Войти']");
+
+    public By getSignInBlock() {
+        return signInBlock;
+    }
+
+    // Блок с заголовком Войти
+    private final By signInBlock = By.xpath(".//div/h2[text()='Вход']");
     private final By personalAccount = By.xpath(".//p[@class='AppHeader_header__linkText__3q_va ml-2' and text()='Личный Кабинет']");
 
     // личный кабинет

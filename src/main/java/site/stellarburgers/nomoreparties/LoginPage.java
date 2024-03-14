@@ -34,9 +34,6 @@ public class LoginPage {
         this.driver = driver;
     }
 
-    public By getSignInBlog() {
-        return signInBlog;
-    }
 
     @Step("Клик на кнопку Восстановить пароль")
     public void clickForgotPassword() {
@@ -62,12 +59,6 @@ public class LoginPage {
     public void clickSignOut() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(signOut));
         driver.findElement(signOut).click();
-    }
-
-    // клик на на кнопку Вход в личном кабинете
-    public void pressSignInButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(signInButton));
-        driver.findElement(signInButton).click();
     }
 
     @Step("Нажать на кнокпу Зарегистрироваться")

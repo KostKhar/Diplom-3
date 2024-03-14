@@ -23,4 +23,9 @@ public class MainPageTest extends BaseTest {
         assertTrue(new MainPage(driver).clickFilling());
     }
 
+    @Override
+    public void browserQuit() {
+        driver.quit();
+    }
+
 }

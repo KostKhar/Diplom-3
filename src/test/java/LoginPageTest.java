@@ -6,16 +6,11 @@ import static org.junit.Assert.assertTrue;
 
 public class LoginPageTest extends BaseTest {
 
-    private User user;
-
-    private String accessToken;
-
-
     @Override
     public void setUp() {
         RestAssured.baseURI = "https://stellarburgers.nomoreparties.site/";
-        this.user = new User("yaan@test1.ru", "Pass1234", "Nick1");
-        this.accessToken = user.createUser().then().extract().path("accessToken");
+        user = new User(email, password, name);
+        accessToken = user.createUser().then().extract().path("accessToken");
         driver = initDriver(System.getProperty("webdriver.driver"));
         driver.get("https://stellarburgers.nomoreparties.site/");
     }
@@ -37,7 +32,7 @@ public class LoginPageTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
 
         mainPage.clickSignIn();
-        loginPage.pressSignInButton("yaan@test1.ru", "Pass1234");
+        loginPage.pressSignInButton(email, password);
 
         assertTrue(driver.findElement(mainPage.getCreateOrder()).isDisplayed());
     }
@@ -52,7 +47,7 @@ public class LoginPageTest extends BaseTest {
         mainPage.clickPersonalAccount();
         loginPage.pressSignUpButton();
         registerPage.clickSignInButton();
-        loginPage.pressSignInButton("yaan@test1.ru", "Pass1234");
+        loginPage.pressSignInButton(email, password);
 
         assertTrue(driver.findElement(mainPage.getCreateOrder()).isDisplayed());
     }
@@ -67,7 +62,7 @@ public class LoginPageTest extends BaseTest {
         mainPage.clickPersonalAccount();
         loginPage.clickForgotPassword();
         forgotPasswordPage.clickSignIn();
-        loginPage.pressSignInButton("yaan@test1.ru", "Pass1234");
+        loginPage.pressSignInButton(email, password);
 
         assertTrue(driver.findElement(mainPage.getCreateOrder()).isDisplayed());
     }
@@ -79,7 +74,7 @@ public class LoginPageTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
 
         mainPage.clickSignIn();
-        loginPage.pressSignInButton("yaan@test1.ru", "Pass1234");
+        loginPage.pressSignInButton(email, password);
         mainPage.clickPersonalAccount();
         loginPage.clickSignOut();
 
@@ -102,18 +97,13 @@ public class LoginPageTest extends BaseTest {
     @Test
     public void checkStellarBurgerButton() {
         MainPage mainPage = new MainPage(driver);
+        LoginPage loginPage = new LoginPage(driver);
+
         mainPage.clickPersonalAccount();
-        new LoginPage(driver).clickStellarBurgers();
+        loginPage.clickStellarBurgers();
+
         assertTrue(driver.findElement(mainPage.getBun()).isDisplayed());
     }
 
-    @Override
-    public void browserQuit() {
-        if (accessToken == null) {
-            this.user.deleteUser("");
-        } else {
-            this.user.deleteUser(accessToken);
-        }
-        this.driver.quit();
-    }
+
 }
